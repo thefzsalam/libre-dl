@@ -1,4 +1,4 @@
-package pl.czak.minimal;
+package in.fzs.libredl;
 
 import android.app.Activity;
 import android.os.Bundle;
