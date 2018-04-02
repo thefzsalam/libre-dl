@@ -6,15 +6,28 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
+
+import java.util.List;
 
 import in.fzs.libredl.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static class Widgets {                  // Namespace for all the widgets defined.
+        static ListView download_list_view;
+    }
+
+    void load_widgets() {
+        Widgets.download_list_view = (ListView) findViewById(R.id.download_list_view);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        load_widgets();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
