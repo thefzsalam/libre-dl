@@ -1,4 +1,7 @@
-package in.fzs.libredl.downloader;
+package in.fzs.libredl.backend.downloader;
+
+import in.fzs.libredl.backend.persistence.DownloadInfo;
+import in.fzs.libredl.common.Entry;
 
 public interface IDataUpdateListener {
 

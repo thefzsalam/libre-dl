@@ -1,7 +1,9 @@
-package in.fzs.libredl;
+package in.fzs.libredl.backend.persistence;
 
 
-class DownloadInfo {
+import in.fzs.libredl.common.DownloadState;
+
+public class DownloadInfo {
     String url;
     String file_path;
     DownloadState state;

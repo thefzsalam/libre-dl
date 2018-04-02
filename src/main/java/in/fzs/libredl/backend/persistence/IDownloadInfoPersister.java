@@ -1,4 +1,6 @@
-package in.fzs.libredl;
+package in.fzs.libredl.backend.persistence;
+
+import java.util.Iterator;
 
 public interface IDownloadInfoPersister {
 

@@ -1,5 +1,7 @@
 package in.fzs.libredl.download_list_view;
 
+import in.fzs.libredl.Entry;
+
 public abstract class AbstractDownloadListView {
 
     protected final IViewRequestsDispatcher view_request_dispatcher;

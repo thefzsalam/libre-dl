@@ -1,4 +1,4 @@
-package in.fzs.libredl;
+package in.fzs.libredl.common;
 
 public enum DownloadState {
     RUNNING,

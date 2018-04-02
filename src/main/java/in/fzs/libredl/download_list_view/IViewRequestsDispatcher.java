@@ -1,5 +1,7 @@
 package in.fzs.libredl.download_list_view;
 
+import in.fzs.libredl.Entry;
+
 public interface IViewRequestsDispatcher {
 
     public void request_add();
