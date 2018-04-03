@@ -1,2 +1,11 @@
 .gradle
 build
+local.properties
+
+# Android Studio / IntelliJ IDEA
+*.iws
+.idea/libraries
+.idea/caches
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/workspace.xml
