@@ -4,10 +4,10 @@ import in.fzs.libredl.common.Entry;
 
 public abstract class AbstractDownloadListView {
 
-    protected final IViewRequestHandler view_request_dispatcher;
+    protected final IViewRequestHandler view_request_handler;
 
-    public AbstractDownloadListView(IViewRequestHandler view_request_dispatcher) {
-        this.view_request_dispatcher = view_request_dispatcher;
+    public AbstractDownloadListView(IViewRequestHandler view_request_handler) {
+        this.view_request_handler = view_request_handler;
     }
 
     public abstract Entry<DownloadListViewData> add_to_view(DownloadListViewData data);
