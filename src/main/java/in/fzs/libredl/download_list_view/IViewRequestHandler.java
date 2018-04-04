@@ -6,8 +6,9 @@ import in.fzs.libredl.common.Entry;
 
 public interface IViewRequestHandler {
 
-    void request_add();
-    void request_update(Entry<DownloadListViewData> entry_to_update);
-    void request_delete(Entry<DownloadListViewData> entry_to_delete);
-    void request_pause(Entry<DownloadListViewData> entry_to_pause);
+    void request_add_download();
+    void request_update_download(Entry<DownloadListViewData> entry_to_update);
+    void request_delete_download(Entry<DownloadListViewData> entry_to_delete);
+    void request_pause_download(Entry<DownloadListViewData> entry_to_pause);
+    void request_start_download(Entry<DownloadListViewData> entry_to_pause);
 }
