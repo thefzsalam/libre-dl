@@ -4,6 +4,14 @@ import in.fzs.libredl.common.Entry;
 
 public abstract class AbstractDownloadListView {
 
+    /**
+     * Architecture:
+     * Pressing buttons in the DownloadListView will send respective
+     * requests to IViewRequestHandler registered.
+     * If those requests succeed, it is the responsibility of whoever handles that request
+     * to let the main controller know about its success or failure and thus
+     * call AbstractDownloadListView's respective methods to reflect the change in dataset.
+     */
     protected final IViewRequestHandler view_request_handler;
 
     public AbstractDownloadListView(IViewRequestHandler view_request_handler) {
