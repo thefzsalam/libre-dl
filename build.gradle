@@ -11,12 +11,17 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 25
     buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "in.fzs.libredl"
+        minSdkVersion 15
+        targetSdkVersion 25
+    }
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:23.+'
+    implementation 'com.android.support:appcompat-v7:25.+'
     implementation 'com.android.support.constraint:constraint-layout:+'
-    implementation 'com.android.support:design:23.+'
+    implementation 'com.android.support:design:25.+'
 }
