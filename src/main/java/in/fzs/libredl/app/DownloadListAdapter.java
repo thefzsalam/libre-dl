@@ -4,8 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 import in.fzs.libredl.R;
@@ -19,6 +21,16 @@ public class DownloadListAdapter extends BaseAdapter {
         this.download_list_entries = download_list_entries;
     }
 
+    private View inflateDownloadListEntryView(ViewGroup parent) {
+        return LayoutInflater.from(parent.getContext()).inflate(R.layout.download_entry,parent);
+    }
+
+    private void updateFieldsOfDownloadListEntryView(View view, DownloadListViewData data) {
+        ((TextView) view.findViewById(R.id.download_entry_name)).setText(data.name);
+        ((TextView) view.findViewById(R.id.download_entry_progress)).setText(String.format(Locale.US,"%.2f %%",data.progress*100));
+        ((TextView) view.findViewById(R.id.download_entry_state)).setText(data.state.toString());
+    }
+
     @Override
     public int getCount() {
         return download_list_entries.size();
@@ -30,7 +42,6 @@ public class DownloadListAdapter extends BaseAdapter {
         for(int i=0;i<position;i++)
             itr.next();
         return itr.next().getValue();
-
     }
 
     @Override
@@ -44,8 +55,9 @@ public class DownloadListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.download_entry,parent);
+            convertView = inflateDownloadListEntryView(parent);
         }
+        updateFieldsOfDownloadListEntryView(convertView, getItem(position));
         return convertView;
     }
 }
