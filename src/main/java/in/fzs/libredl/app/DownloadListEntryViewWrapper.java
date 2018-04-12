@@ -75,4 +75,8 @@ public class DownloadListEntryViewWrapper {
                 "%.2f %%",data.progress*100));
         download_entry_state.setText(data.state.toString());
     }
+
+    public View getDownloadEntryView() {
+        return download_entry_view;
+    }
 }

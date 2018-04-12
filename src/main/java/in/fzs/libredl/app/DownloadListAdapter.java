@@ -1,34 +1,24 @@
 package in.fzs.libredl.app;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Map;
 
-import in.fzs.libredl.R;
+import in.fzs.libredl.common.Entry;
 import in.fzs.libredl.download_list_view.DownloadListViewData;
+import in.fzs.libredl.download_list_view.IViewRequestHandler;
 
 public class DownloadListAdapter extends BaseAdapter {
 
     private final Map<Long,DownloadListViewData> download_list_entries;
+    private final IViewRequestHandler view_request_handler;
 
-    public DownloadListAdapter(Map<Long, DownloadListViewData> download_list_entries) {
+    public DownloadListAdapter(Map<Long, DownloadListViewData> download_list_entries, IViewRequestHandler view_request_handler) {
         this.download_list_entries = download_list_entries;
-    }
-
-    private View inflateDownloadListEntryView(ViewGroup parent) {
-        return LayoutInflater.from(parent.getContext()).inflate(R.layout.download_entry,parent);
-    }
-
-    private void updateFieldsOfDownloadListEntryView(View view, DownloadListViewData data) {
-        ((TextView) view.findViewById(R.id.download_entry_name)).setText(data.name);
-        ((TextView) view.findViewById(R.id.download_entry_progress)).setText(String.format(Locale.US,"%.2f %%",data.progress*100));
-        ((TextView) view.findViewById(R.id.download_entry_state)).setText(data.state.toString());
+        this.view_request_handler = view_request_handler;
     }
 
     @Override
@@ -52,12 +42,18 @@ public class DownloadListAdapter extends BaseAdapter {
         return itr.next().getKey();
     }
 
+    private Entry<DownloadListViewData> getEntry(int position) {
+        Iterator<Map.Entry<Long, DownloadListViewData>> itr = download_list_entries.entrySet().iterator();
+        for(int i=0;i<position;i++)
+            itr.next();
+        return new Entry<>(itr.next());
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
-            convertView = inflateDownloadListEntryView(parent);
-        }
-        updateFieldsOfDownloadListEntryView(convertView, getItem(position));
-        return convertView;
+        DownloadListEntryViewWrapper entry_view_wrapper =
+                new DownloadListEntryViewWrapper(parent, convertView,
+                                                 getEntry(position), view_request_handler);
+        return entry_view_wrapper.getDownloadEntryView();
     }
 }
