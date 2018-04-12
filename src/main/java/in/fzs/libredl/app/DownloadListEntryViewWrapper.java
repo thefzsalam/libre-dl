@@ -25,12 +25,15 @@ public class DownloadListEntryViewWrapper {
     private Entry<DownloadListViewData> entry_data;
 
     public DownloadListEntryViewWrapper(ViewGroup parent,
+                                        View convert_view,
                                         Entry<DownloadListViewData> data,
                                         IViewRequestHandler view_request_handler) {
 
         /* Initializing XML View variables */
-
-        download_entry_view = LayoutInflater.from(parent.getContext())
+        if(convert_view!=null)
+            download_entry_view = convert_view;
+        else
+            download_entry_view = LayoutInflater.from(parent.getContext())
                                     .inflate(R.layout.download_entry,parent);
         download_entry_name = (TextView) download_entry_view.findViewById(R.id.download_entry_name);
         download_entry_progress = (TextView) download_entry_view.findViewById(R.id.download_entry_progress);
