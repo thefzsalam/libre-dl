@@ -22,7 +22,7 @@ public class DownloadListEntryViewWrapper {
 
 
     private final IViewRequestHandler view_request_handler;
-    Entry<DownloadListViewData> entry_data;
+    private Entry<DownloadListViewData> entry_data;
 
     public DownloadListEntryViewWrapper(ViewGroup parent,
                                         Entry<DownloadListViewData> data,
