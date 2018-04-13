@@ -23,9 +23,6 @@ public class DownloadListView extends AbstractDownloadListView {
     private final Map<Long,DownloadListViewData> download_list_entries;
     private final BaseAdapter download_list_adapter;
 
-    private long id_of_last_download_list_entry = 0;
-
-
     public DownloadListView(IViewRequestHandler view_request_handler, Widgets widgets) {
         super(view_request_handler);
         this.widgets = widgets;
@@ -35,11 +32,9 @@ public class DownloadListView extends AbstractDownloadListView {
     }
 
     @Override
-    public Entry<DownloadListViewData> add_to_view(DownloadListViewData data) {
-        id_of_last_download_list_entry += 1;
-        download_list_entries.put(id_of_last_download_list_entry, data);
+    public void add_to_view(Entry<DownloadListViewData> entry) {
+        download_list_entries.put(entry.id, entry.item);
         notifyListViewOfDataChange();
-        return new Entry<>(id_of_last_download_list_entry, data);
     }
 
     @Override

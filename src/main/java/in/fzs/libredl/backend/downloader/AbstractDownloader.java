@@ -11,7 +11,8 @@ public abstract class AbstractDownloader {
         this.data_update_listener = data_update_listener;
     }
 
-    public abstract Entry<DownloadInfo> add_download(DownloadInfo download_info);
-    public abstract void                update_download(Entry<DownloadInfo> download_info_entry);
-    public abstract void                delete_download(Entry<DownloadInfo> download_info_entry);
+    /* The Main class is responsible for assigning `id`s to download_info_entry. */
+    public abstract void add_download(Entry<DownloadInfo> download_info_entry);
+    public abstract void update_download(Entry<DownloadInfo> download_info_entry);
+    public abstract void delete_download(Entry<DownloadInfo> download_info_entry);
 };

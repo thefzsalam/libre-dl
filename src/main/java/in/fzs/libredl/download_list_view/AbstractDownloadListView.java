@@ -18,7 +18,7 @@ public abstract class AbstractDownloadListView {
         this.view_request_handler = view_request_handler;
     }
 
-    public abstract Entry<DownloadListViewData> add_to_view(DownloadListViewData data);
+    public abstract void add_to_view(Entry<DownloadListViewData> data);
     public abstract void update_view(Entry<DownloadListViewData> entry);
     public abstract void delete_from_view(Entry<DownloadListViewData> entry);
 
