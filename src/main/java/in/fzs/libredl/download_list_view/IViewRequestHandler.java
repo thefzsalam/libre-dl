@@ -1,7 +1,6 @@
 package in.fzs.libredl.download_list_view;
 
 
-import in.fzs.libredl.app.DownloadListView;
 import in.fzs.libredl.common.Entry;
 
 public interface IViewRequestHandler {
