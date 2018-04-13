@@ -1,4 +1,4 @@
-package in.fzs.libredl.app;
+package in.fzs.libredl.app.download_list_view;
 
 import android.view.LayoutInflater;
 import android.view.View;
